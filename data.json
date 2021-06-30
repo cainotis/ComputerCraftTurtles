@@ -1,0 +1,24 @@
+{
+    "path": [],
+    "mining_level": 12,
+    "origin": {
+        "y": 0,
+        "x": 0,
+        "orientation": 0,
+        "z": 0
+    },
+    "minimum_fuel": 100,
+    "founds": {
+    },
+    "position": {
+        "y": 0,
+        "x": 0,
+        "orientation": 0,
+        "z": 0
+    },
+    "unsafe": [
+        "stella_arcanum",
+        "spawner"
+    ],
+    "size": 64
+}
