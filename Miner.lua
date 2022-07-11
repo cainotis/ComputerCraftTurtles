@@ -1,6 +1,8 @@
-os.loadAPI("Position.lua")
-os.loadAPI("json.lua")
-os.loadAPI("util.lua")
+os.loadAPI("ComputerCraftTurtles/Position.lua")
+os.loadAPI("ComputerCraftTurtles/json.lua")
+os.loadAPI("ComputerCraftTurtles/util.lua")
+
+
 
 Miner = {
 	origin = Position,
@@ -13,7 +15,7 @@ Miner = {
 	size = 64
 }
 
-function new(...)
+function new(file, ...)
 	local self = {}
 
 	local origin, position, founds, path, unsafe, minimum_fuel, mining_level
@@ -39,6 +41,7 @@ function new(...)
 	end
 
 	setmetatable (self, {__index=Miner})
+	self.file = file or "data.json"
 	self.origin = origin or Position.new()
 	self.position = position or util.copy(self.origin)
 	self.founds = founds or {}
@@ -56,7 +59,7 @@ function Miner:down()
 	if(moved) then
 		self.position:down()
 	end
-	json.encodeToFile(self, "data.json")
+	json.encodeToFile(self, self.file)
 end
 
 function Miner:up()
@@ -65,7 +68,7 @@ function Miner:up()
 	if(moved) then
 		self.position:up()
 	end
-	json.encodeToFile(self, "data.json")
+	json.encodeToFile(self, self.file)
 end
 
 function Miner:forward()
@@ -74,7 +77,7 @@ function Miner:forward()
 	if(moved) then
 		self.position:forward()
 	end
-	json.encodeToFile(self, "data.json")
+	json.encodeToFile(self, self.file)
 end
 
 function Miner:back()
@@ -83,19 +86,19 @@ function Miner:back()
 	if(moved) then
 		self.position:back()
 	end
-	json.encodeToFile(self, "data.json")
+	json.encodeToFile(self, self.file)
 end
 
 function Miner:turnRight()
 	turtle.turnRight()
 	self.position:turnRight()
-	json.encodeToFile(self, "data.json")
+	json.encodeToFile(self, self.file)
 end
 
 function Miner:turnLeft()
 	turtle.turnLeft()
 	self.position:turnLeft()
-	json.encodeToFile(self, "data.json")
+	json.encodeToFile(self, self.file)
 end
 
 function Miner:fuelToContinue()
