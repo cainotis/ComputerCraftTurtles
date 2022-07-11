@@ -5,7 +5,7 @@
         "y": 0,
         "x": 0,
         "orientation": 0,
-        "z": 0
+        "z": 64
     },
     "minimum_fuel": 100,
     "founds": {
@@ -14,7 +14,7 @@
         "y": 0,
         "x": 0,
         "orientation": 0,
-        "z": 0
+        "z": 64
     },
     "unsafe": [
         "stella_arcanum",
